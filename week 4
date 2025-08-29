@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout Assignment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>My Responsive Webpage</h1>
+  </header>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="content">
+      <h2>Main Content</h2>
+      <p>
+        This is the main content area. Resize the window to see how the layout adjusts using CSS Grid and Flexbox.
+      </p>
+      <div class="cards">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Sidebar</h3>
+      <p>Some sidebar content goes here.</p>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 My Responsive Site</p>
+  </footer>
+</body>
+</html>
+/* ====== Base Reset ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ====== Layout Using Grid ====== */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Content + Sidebar */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ====== Header ====== */
+.header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ====== Navigation with Flexbox ====== */
+.navbar {
+  background: #34495e;
+}
+
+.navbar ul {
+  display: flex;               /* Flexbox */
+  justify-content: center;     /* Center links */
+  list-style: none;
+  padding: 10px;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ====== Main Content ====== */
+.content {
+  background: #ecf0f1;
+  padding: 20px;
+}
+
+/* Cards using Flexbox */
+.cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card {
+  flex: 1;
+  background: #bdc3c7;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* ====== Sidebar ====== */
+.sidebar {
+  background: #f1c40f;
+  padding: 20px;
+}
+
+/* ====== Footer ====== */
+.footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr; /* Stack content and sidebar */
+  }
+
+  .cards {
+    flex-direction: column; /* Stack cards vertically */
+  }
+
+  .navbar ul {
+    flex-direction: column; /* Vertical nav */
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
